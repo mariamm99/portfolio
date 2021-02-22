@@ -1,0 +1,575 @@
+$primaryColor: #009688
+$primaryLightColor: #52c7b8
+$primaryDarkColor: #00675b
+$secondaryColor: #e91e63
+$secondaryLightColor: #ff6090
+$secondaryDarkColor: #b0003a
+$degradadoblanco: rgba(255, 255, 255, 0.7)
+$gris: #999999
+
+
+=parallax($url)
+    background-image: url($url)
+    height: 100vh
+    background-attachment: fixed
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    //texto centrado
+    display: flex
+    
+
+=texto($color)
+    text-align: center
+    width: 50%
+    background-color: rgba($color, 0.7)
+    color: #fff
+    padding: 15px 5px
+    margin: auto
+    letter-spacing: 3px
+
+@font-face
+    font-family: 'cuadros'
+    src: url('../fonts/AmaticSC-Bold.ttf')
+    font-weight: normal
+    font-style: normal  
+
+.cuadrados   
+    animation: slide-right 5s
+    animation-fill-mode: forwards
+
+*
+    font-family: 'Roboto', sans-serif
+    font-size: 16px
+    box-sizing: border-box
+    margin: 0px
+    padding: 0px
+
+ul
+    text-decoration: none
+    list-style: none
+
+a
+    text-decoration: none
+    color: var(--primary-text-color-negro)
+
+    //menu despegable en movil, que te lleve a la sección pulsada sobre mi, proyectos contacto
+header
+    display: grid
+    background: $degradadoblanco
+    color: $primaryColor
+    grid-template-columns: 1fr 1fr
+    width: 100%
+    position: fixed
+    z-index: 1
+    padding: 5px
+    border-bottom: solid 2px $gris
+
+    div
+        background-image: url("../img/logoCorto5.png")
+        background-repeat: no-repeat
+        background-size: contain
+
+    span
+        font-size: 30px
+        cursor: pointer
+        justify-self: end
+        margin-right: 4%
+        padding: 1%
+
+nav
+    color: #fff
+    text-transform: uppercase
+    letter-spacing: 3px
+        //ocultar menu
+    height: 100vh
+    width: 0
+    position: fixed
+    z-index: 1
+    background-color:  rgba(0, 150, 136, 0.7)
+    overflow-x: hidden
+    transition: 0.5s
+    //colocación nav
+    display: flex
+    flex-direction: column
+
+    span.closebtn
+        cursor: pointer
+        align-self: flex-end
+        font-size: 60px
+        margin-right: 4%
+
+    ul
+        width: 100%
+        text-align: center
+        margin-top: 30px
+        li
+            margin: 3%
+            a
+                padding: 8px
+                font-size: 2em
+                transition: 0.3s
+                &:hover, &:focus
+                    color: $secondaryColor
+
+    &.active
+        width: 100%
+        
+
+
+.parallax
+    @include parallax('../img/caminoRey.jpg')
+
+.parallaxDaw
+    @include parallax("../img/web.jpg")
+
+.parallaxSistemas
+    @include parallax("../img/sistemas.jpg")
+
+.parallaxProyectos
+    @include parallax("../img/proyectos/19199064.jpg")
+
+.parallaxOtros
+    @include parallax("../img/learning/4529183.jpg")
+
+.parallax-contacto
+    @include parallax("../img/hablar/8741.jpg")
+
+.parallaxCurriculum
+    @include parallax("../img/curriculum/5836.jpg")
+
+.parallaxFinal
+    @include parallax("../img/fotofinal/9814.jpg")
+    height: 30vh
+
+.texto
+    @include texto($primaryColor)
+    p
+        color #000
+        font-size: 0.8em
+        font-family: 'cuadros'
+        
+    h2
+        font-size: 1.1em
+        font-family: 'cuadros'
+.textoAsir
+    @include texto($secondaryColor)
+    p
+        color #000
+        font-size: 0.5em
+        font-family: 'cuadros'
+    h2
+        font-size: 0.8em
+        font-family: 'cuadros'
+
+.inicio
+    @include texto($degradadoblanco)
+    display: flex
+    flex-wrap: wrap
+    flex-direction: column
+    color: $primaryColor
+    align-items: center
+    animation: bote 1s
+    
+    hr
+        width: 90%
+        margin: 4%
+    img
+        width: 100%
+    >h2
+        color: $primaryColor
+        letter-spacing: 1px
+        margin-top: 2px
+
+
+@keyframes bote 
+  0% 
+    transform: scale(0.1)
+    opacity: 0
+  
+  60% 
+    transform: scale(1.3)
+    opacity: 1
+  
+  100% 
+    transform: scale(1)
+  
+
+
+@keyframes slide-right
+    0%
+        transform: translateX(-40%)
+
+    100%
+        transform: translateX(0%)
+
+section
+    min-height: 70vh
+    text-align: center
+    padding: 20px
+    // background: #f6f6f6
+
+    >div p
+        text-align: justify
+        padding: 10px 20px 15px
+
+    h3
+        letter-spacing: 4px
+        padding: 5px
+        text-transform: uppercase
+ 
+        // font-size: 1.2em
+        overflow: hidden
+        border-right: .15em solid #000
+        white-space: nowrap
+        margin: 10px auto
+        
+
+    .escribir
+        animation: typing 5s steps(30, start), blink-caret 1s step-end
+
+
+
+@keyframes typing
+    from
+        width: 0
+    to 
+        width: 100%
+
+
+
+@keyframes blink-caret 
+    from, to  
+        border-color: transparent
+    80% 
+        border-color: #000
+
+
+
+.presentacion
+    div
+        display: flex
+        flex-direction: column
+        align-items: center
+        a
+            width: 50%
+            margin-top: 10px
+.btn
+    padding: 10px
+    border-radius: 30px
+
+.btndaw
+    color: $primaryColor
+    border: 1px solid $primaryColor
+
+.btnasir
+    color: $secondaryColor
+    border: 1px solid $secondaryColor
+    margin-bottom: 30px
+
+.imgRedonda
+    width: 60%
+    
+    border-radius: 100vmax
+    border-bottom: 3px solid $secondaryColor
+    border-right: 3px solid $secondaryColor
+    border-left: 3px solid $primaryColor
+    border-top: 3px solid $primaryColor
+    
+    // box-shadow: 2px 2px 12px $primaryColor
+
+//degradado
+// -webkit-text-fill-color: transparent
+//         background: linear-gradient($primaryColor, $secondaryColor)
+//         -webkit-background-clip: text
+section.DAW
+    div
+        h4
+            margin: 10px
+            
+        ul
+            li
+                display: grid
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 4fr
+                align-items: center
+                span
+                    color: $primaryColor
+                    &:hover
+                        animation: girar 2s
+    
+        
+
+section.ASIR
+    div
+        h4
+            margin: 10px
+            margin-right: 2%
+            
+        ul
+            li
+                display: grid
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 7fr
+                align-items: center
+                span
+                    //cuando esté sobre el p pasar span a color principal
+                    color: $secondaryColor
+                    &:hover
+                        animation: girar 2s
+
+@keyframes girarScale
+    0% 
+        transform: rotate3d(1,1,1,0deg) scale(1.2)
+        
+    100%
+        transform: rotate3d(1,1,1,360deg) scale(1.2)   
+
+@keyframes girar
+    0% 
+        transform: rotate(0deg)
+        
+    100%
+        transform: rotate(360deg)
+
+
+
+.idiomas 
+
+    >div
+        display: grid
+        grid-template-columns: 1fr 6fr
+        padding: 5px
+        align-items: center
+        img
+            width: 70%
+            // justify-self: end
+            // padding: 3%
+            display: inline-block
+        p
+            // justify-self: start
+            padding: 1%
+            display: inline-block
+.cursos
+    ul
+        list-style: circle
+        padding: 6px
+        li
+            text-align: justify
+                
+.otros
+    h4
+        text-decoration-line: underline
+        letter-spacing: 2px
+        text-align: center
+        margin-top: 15px
+
+.proyectos
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+   
+    img
+        width: 85%
+
+.proyect
+   
+    padding: 5px
+    margin: 20px
+    border-radius: 20px 20px 20px
+    
+    h4
+        display: flex
+        flex-flow: row
+        align-items: center
+        justify-content: center
+
+    
+.proyect-daw .proyect
+    border: solid 3px $primaryColor
+    box-shadow: 8px 8px 8px rgba($primaryColor, 0.3)
+    span
+        color: $primaryColor
+
+.proyect-asir .proyect
+    border: solid 3px $secondaryColor
+    box-shadow: 8px 8px 8px rgba($secondaryColor, 0.3)
+    span
+        color: $secondaryColor
+
+   
+
+.lenguajes
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+    justify-items: center
+   
+    img
+        width: 30%
+
+
+.contacto
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-areas: "mail a" "b telegram" "twitter c" "d linkedin"
+    a 
+        img
+            width: 35%
+        &:hover
+            animation: girarScale 2s
+    #mail
+        grid-area: mail
+
+    #telegram
+        grid-area: telegram
+        
+    #twitter
+        grid-area: twitter
+        
+    #linkedin
+        grid-area: linkedin
+       
+
+    
+        // display: grid
+        // grid-template-columns: 1fr 1fr
+        // justify-content: space-around
+        // div
+        //     img
+        //         width: 90%
+            
+
+.curriculum
+    iframe
+        height: 50vh
+        margin: 15px
+        padding: 10px
+        width: 90%
+    a
+        display: block
+
+footer
+    padding: 5px
+    text-align: center
+    border-top: solid 2px $gris
+
+    // >div
+    //     filter: invert(20%)
+
+    div.nombre
+        
+        span, p
+            display: inline-block
+            vertical-align: middle
+
+    div.logos
+        padding: 2%
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        
+        a
+            &:hover
+                animation: girarScale 2s
+            
+            display: inline-block
+            img
+                width: 30%
+
+    div.copy a
+        font-size: 7px
+
+
+@media (min-width: 720px)
+    .inicio
+        width: 30%
+        img
+            width: 50%
+        hr
+            width: 50% 
+
+    .escribir
+        animation: typing 14s steps(40, start), blink-caret 1s step-end
+
+    .learning
+        display: grid
+        grid-template-columns: 1fr 1fr
+       
+           
+    .otros
+        display: grid
+        grid-template-columns: 1fr 1fr
+        
+
+    .contacto
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-template-areas: "mail a twitter d" "b telegram c linkedin"
+        align-items: center   
+        a
+            justify-self: center
+            padding: 0
+            width: 70%
+    
+    .imgRedonda
+        width: 40%
+           
+            
+
+    nav.active 
+        width: 300px
+
+    footer
+        display: grid
+        grid-template-columns: 1fr 1fr
+        align-items: center
+        .copy
+            grid-column: span 2
+    
+    .proyectos
+        display: grid
+        grid-template-columns: 1fr 1fr 
+        h3
+            grid-column: span 2
+    
+    .DAW, .ASIR
+        h4
+            padding-right: 30%
+
+
+@media (min-width: 1024px)
+    .presentacion
+        display: grid
+        grid-template-columns: 3fr 1fr
+        grid-template-areas: "title img" "div img"
+        align-items: center
+        h3
+            grid-column: span 2
+            grid-area: title
+        img
+            justify-self: center
+            width: 90%
+            *grid-row: span 2
+            grid-area: img 
+        div
+            grid-area: div
+
+    .idiomas > div img 
+        width: 50%
+        place-self: end
+
+    .idiomas, .otros
+        h4
+            margin-right: 25%
+    
+    .proyectos
+        grid-template-columns: 1fr 1fr 1fr 
+        h3
+            grid-column: span 3
+
+    .contactos a 
+         width: 50%
+
+    .texto, .textoAsir
+        p
+            font-size: 0.8em
+        
+        h2
+            font-size: 1.1em
+           
